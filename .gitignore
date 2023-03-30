@@ -1,1 +1,4 @@
-target/
+# InteliJ
+.idea/
+out/
+.idea/
