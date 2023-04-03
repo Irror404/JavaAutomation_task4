@@ -47,10 +47,11 @@ public class PaymentQuery {
 
     public static void printAllAccounts(Connection connection) throws SQLException {
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM Accounts;");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM Accounts INNER JOIN Users On Account.userId = Users.userId;");
         while (resultSet.next()) {
             System.out.println("accountId: " + resultSet.getInt("accountId"));
             System.out.println("userId:" + resultSet.getInt("userId"));
+            System.out.println("name:" + resultSet.getString("name"));
             System.out.println("balance: " + resultSet.getDouble("balance"));
             System.out.println("currency:" + resultSet.getString("currency"));
         }

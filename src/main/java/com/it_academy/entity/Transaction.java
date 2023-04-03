@@ -28,6 +28,9 @@ public class Transaction {
     }
 
     public void setAmount(double amount) {
+        if(amount > 100000000) {
+            throw new IllegalArgumentException("Impossible amount of transaction");
+        }
         this.amount = amount;
     }
 

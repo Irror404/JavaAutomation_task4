@@ -29,6 +29,9 @@ public class Account {
     }
 
     public void setBalance(double balance) {
+        if(balance < 0 || balance > 2000000000) {
+            throw new IllegalArgumentException("Invalid balance value!");
+        }
         this.balance = balance;
     }
 
